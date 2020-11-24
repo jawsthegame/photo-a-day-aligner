@@ -113,7 +113,7 @@ if __name__ == "__main__":
 
     if cli_args.cmd == "print_config_paths":
         for config_path in config_paths:
-            print config_path
+            print(config_path)
         sys.exit(0)
 
     # Attempt to open each config file, and update the `cfg` dict with each

@@ -58,7 +58,7 @@ class LandmarkFinder(object):
 
 
 def draw_convex_hull(im, points, color):
-    points = cv2.convexHull(points)
+    points = cv2.convexHull(points.astype('int32'))
     cv2.fillConvexPoly(im, points, color=color)
 
 

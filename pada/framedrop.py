@@ -49,7 +49,11 @@ def find_weights(names, mask, frame_skip):
 
     for n in names:
         im = cv2.imread(n)
-        masked_im = (im * mask[:, :, numpy.newaxis]).astype(numpy.float32)
+        try:
+            masked_im = (im * mask[:, :, numpy.newaxis]).astype(numpy.float32)
+        except Exception as e:
+            print(n, e)
+            continue
         layer.append((n, masked_im))
 
         if len(layer) == frame_skip:
